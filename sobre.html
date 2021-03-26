@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Sobre</title>
+
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+  <form name="formulario">
+    <div>
+      <label for="username">Usuário:</label>
+      <input type="text" id="username" name="username" onclick="cor1(document.formulario.username)"
+        onkeyup="cor1(document.formulario.username)" onblur="cor2()">
+    </div>
+    <div>
+      <label for="pass">Senha:</label>
+      <input type="password" id="pass" name="password" onclick="cor1(document.formulario.password)"
+        onkeyup="cor1(document.formulario.password)" onblur="cor2()">
+    </div>
+    <input type="button" value="Entrar" id="botao" onclick="cor()">
+  </form>
+
+  <h1>Diário Digital</h1>
+  <h2>Meu Diário Digital</h2>
+  <br>
+  <center>
+    <img src="./diario.jpg" alt="imagem de um Diário">
+  </center>
+  <br>
+  <p>
+    O <abbr title="Aplicação de Diário Digital">ADD</abbr> é uma aplicação desenvolvida para ajudar seus usuários a
+    guarda suas informações do seu dia a dia.
+  </p>
+  <br>
+  <p>
+    É uma aplicação web que vai mudar a forma como você escrve eu seu diário, que agora tem a práticidade de ser
+    acessado em qualquer lugar.
+  </p>
+  <br>
+  <p>
+    Fim do uso do papel para escrever sobre o seu dia, com o <abbr title="Aplicação de Diário Digital">ADD</abbr>
+  </p>
+  <br>
+  <p>
+    O Diário Digital foi criado por Josênelle e Phillipe, estudantes de computação da <abbr
+      title="Universidade Estadual da Paraíba">UEPB</abbr>
+  </p>
+  <script>
+    let input1 = document.formulario.username;
+    let input2 = document.formulario.password;
+
+    //validação se os dados foram digitados
+    function cor() {
+
+      if (input1.value && input2.value != "") {
+        alert(`Login para o ${input1.value} efetuado com sucesso!`);
+        input2.value = '';
+        input1.value = '';
+      }
+      else {
+        input1.style.border = '2px solid red';
+        input2.style.border = '2px solid red';
+        alert("Preencha todos os campos!");
+      }
+    }
+
+    //muda a cor ao clicar no input e ao digitar
+    function cor1(input) {
+
+      if (input.value != "") {
+        input.style.border = '2px solid green';
+      }
+      else {
+        input.style.border = '2px solid red';
+      }
+
+    }
+    //muda a cor do input ao clicar fora
+    function cor2() {
+      input1.style.border = '2px solid black';
+      input2.style.border = '2px solid black';
+    }
+  </script>
+</body>
+</html>
